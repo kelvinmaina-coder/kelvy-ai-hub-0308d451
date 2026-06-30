@@ -27,6 +27,7 @@ import Chat from "@/pages/Chat";
 import Notifications from "@/pages/Notifications";
 import Calls from "@/pages/Calls";
 import Meetings from "@/pages/Meetings";
+import MeetingRoom from "@/pages/MeetingRoom";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,11 @@ const App = () => (
               <Route path="/" element={<LandingPage />} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/meeting/:id" element={
+                <ProtectedRoute>
+                  <MeetingRoom />
+                </ProtectedRoute>
+              } />
               <Route path="/*" element={
                 <ProtectedRoute>
                   <DashboardLayout>

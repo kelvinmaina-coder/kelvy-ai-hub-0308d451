@@ -10,6 +10,7 @@ import { useAuth, AppRole } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import NotificationBell from "@/components/NotificationBell";
+import CallNotificationModal from "@/components/CallNotificationModal";
 import kelvyLogo from "@/assets/kelvy-logo.png";
 
 interface NavItem {
@@ -126,6 +127,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {children}
         </main>
       </div>
+      <CallNotificationModal />
     </div>
   );
 }
