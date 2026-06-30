@@ -5,7 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 
 interface IncomingCall {
-  id: string;
+  id: number;
   caller_id: string;
   call_type: string;
   caller_name?: string;
