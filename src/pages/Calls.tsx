@@ -38,16 +38,18 @@ export default function Calls() {
     load();
   }, [user]);
 
-  const callBack = async (receiverId: string) => {
+  const callBack = async (receiverId: string, type: "audio" | "video" = "audio") => {
     if (!user) return;
-    const { error } = await supabase.from("calls").insert({
+    const { data, error } = await supabase.from("calls").insert({
       caller_id: user.id,
       receiver_id: receiverId,
-      call_type: "audio",
+      call_type: type,
       status: "initiated",
-    } as any);
-    if (error) { toast.error(error.message); return; }
-    toast.success("Call initiated");
+    } as any).select().single();
+    if (error || !data) { toast.error(error?.message || "Failed"); return; }
+    toast.success("Calling…");
+    // jump the caller into the room while the receiver gets the ring modal
+    window.location.href = `/meeting/${(data as any).id}`;
   };
 
   const missedCount = calls.filter(c => c.status === "missed" && c.receiver_id === user?.id).length;
