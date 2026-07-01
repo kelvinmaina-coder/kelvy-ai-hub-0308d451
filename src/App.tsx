@@ -28,6 +28,7 @@ import Notifications from "@/pages/Notifications";
 import Calls from "@/pages/Calls";
 import Meetings from "@/pages/Meetings";
 import MeetingRoom from "@/pages/MeetingRoom";
+import AuditLog from "@/pages/AuditLog";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -131,6 +132,11 @@ const App = () => (
                       <Route path="/meetings" element={
                         <ProtectedRoute allowedRoles={["super_admin", "manager", "security_analyst", "technician", "client"]}>
                           <Meetings />
+                        </ProtectedRoute>
+                      } />
+                      <Route path="/audit" element={
+                        <ProtectedRoute allowedRoles={["super_admin", "manager"]}>
+                          <AuditLog />
                         </ProtectedRoute>
                       } />
                       <Route path="/settings" element={
