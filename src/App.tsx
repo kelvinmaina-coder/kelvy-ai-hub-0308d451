@@ -28,6 +28,7 @@ import Notifications from "@/pages/Notifications";
 import Calls from "@/pages/Calls";
 import Meetings from "@/pages/Meetings";
 import MeetingRoom from "@/pages/MeetingRoom";
+import AuditLog from "@/pages/AuditLog";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
