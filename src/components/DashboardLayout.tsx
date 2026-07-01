@@ -36,6 +36,7 @@ const navItems: NavItem[] = [
   { icon: Globe, label: "Client Portal", path: "/portal", roles: ["super_admin", "manager", "client"] },
   { icon: Phone, label: "Calls", path: "/calls", roles: ["super_admin", "manager", "security_analyst", "technician", "client"] },
   { icon: Calendar, label: "Meetings", path: "/meetings", roles: ["super_admin", "manager", "security_analyst", "technician", "client"] },
+  { icon: ScrollText, label: "Audit Log", path: "/audit", roles: ["super_admin", "manager"] },
   { icon: Settings, label: "Settings", path: "/settings", roles: ["super_admin", "manager", "security_analyst", "technician", "client"] },
 ];
 
