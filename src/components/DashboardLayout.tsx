@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Shield, Bot, Users, Briefcase, Ticket,
   BarChart3, Network, Code, Settings, Terminal, ChevronLeft,
   ChevronRight, Zap, Globe, Menu, LogOut, MessageSquare, Bell,
-  Phone, Calendar
+  Phone, Calendar, ScrollText
 } from "lucide-react";
 import { useAuth, AppRole } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
