@@ -910,6 +910,69 @@ export type Database = {
         }
         Relationships: []
       }
+      service_requests: {
+        Row: {
+          admin_notes: string | null
+          assigned_technician: string | null
+          attachments: Json | null
+          budget_kes: number | null
+          category: string
+          client_id: string
+          completed_at: string | null
+          created_at: string
+          description: string
+          feedback: string | null
+          id: string
+          location: string | null
+          priority: string
+          rating: number | null
+          status: string
+          technician_notes: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          assigned_technician?: string | null
+          attachments?: Json | null
+          budget_kes?: number | null
+          category?: string
+          client_id: string
+          completed_at?: string | null
+          created_at?: string
+          description: string
+          feedback?: string | null
+          id?: string
+          location?: string | null
+          priority?: string
+          rating?: number | null
+          status?: string
+          technician_notes?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          admin_notes?: string | null
+          assigned_technician?: string | null
+          attachments?: Json | null
+          budget_kes?: number | null
+          category?: string
+          client_id?: string
+          completed_at?: string | null
+          created_at?: string
+          description?: string
+          feedback?: string | null
+          id?: string
+          location?: string | null
+          priority?: string
+          rating?: number | null
+          status?: string
+          technician_notes?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       tasks: {
         Row: {
           assigned_to: string | null
