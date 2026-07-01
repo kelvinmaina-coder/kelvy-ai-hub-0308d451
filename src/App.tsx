@@ -134,6 +134,11 @@ const App = () => (
                           <Meetings />
                         </ProtectedRoute>
                       } />
+                      <Route path="/audit" element={
+                        <ProtectedRoute allowedRoles={["super_admin", "manager"]}>
+                          <AuditLog />
+                        </ProtectedRoute>
+                      } />
                       <Route path="/settings" element={
                         <ProtectedRoute allowedRoles={["super_admin", "manager", "security_analyst", "technician", "client"]}>
                           <SettingsPage />
