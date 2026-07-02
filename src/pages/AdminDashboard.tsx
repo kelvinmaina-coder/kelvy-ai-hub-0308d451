@@ -96,8 +96,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="space-y-6 relative">
-      <Suspense fallback={null}><AmbientOrb3D /></Suspense>
+    <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-display font-bold text-primary text-glow-green">ADMIN COMMAND CENTER</h1>
         <p className="text-sm text-muted-foreground font-mono">Full control • Real-time operations overview</p>
