@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { Shield, Users, Ticket, DollarSign, AlertTriangle, CheckCircle, TrendingUp, Activity, Briefcase, UserCheck } from "lucide-react";
 import MetricCard from "@/components/MetricCard";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
@@ -6,7 +6,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { toast } from "sonner";
-const AmbientOrb3D = lazy(() => import("@/components/three/AmbientOrb3D"));
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({ clients: 0, tickets: 0, scans: 0, events: 0, revenue: 0, pending: 0, scansToday: 0, sr: 0, srOpen: 0 });
