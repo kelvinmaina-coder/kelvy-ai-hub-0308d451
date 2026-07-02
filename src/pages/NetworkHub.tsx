@@ -184,6 +184,7 @@ export default function NetworkHub() {
             </tbody>
           </table>
         </div>
+        )}
       </div>
 
       {suspiciousCount > 0 && (
