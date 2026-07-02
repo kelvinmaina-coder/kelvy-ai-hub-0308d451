@@ -1,7 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from "react";
-import { Network, Wifi, Monitor, AlertTriangle, Globe, RefreshCw, Loader2, ShieldAlert, Boxes, Table as TableIcon } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Network, Wifi, Monitor, AlertTriangle, Globe, RefreshCw, Loader2, ShieldAlert } from "lucide-react";
 import MetricCard from "@/components/MetricCard";
-const NetworkTopology3D = lazy(() => import("@/components/three/NetworkTopology3D"));
 
 const BACKEND_URL = "http://localhost:8000";
 
