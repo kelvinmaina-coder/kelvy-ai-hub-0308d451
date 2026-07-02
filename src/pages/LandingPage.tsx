@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Shield, Bot, Terminal, BarChart3, Users, Zap, Globe, Code, Network, Lock, Server, Cpu } from "lucide-react";
 import kelvyLogo from "@/assets/kelvy-logo.png";
+import { lazy, Suspense } from "react";
+const HeroScene3D = lazy(() => import("@/components/three/HeroScene3D"));
 
 const features = [
   { icon: Shield, title: "Security Operations", desc: "70+ Linux security tools with AI-powered analysis. Nmap, SQLMap, Metasploit, and more.", color: "text-red-400" },
@@ -48,7 +50,14 @@ export default function LandingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 cyber-grid opacity-30" />
-        <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center relative z-10">
+        <div className="absolute inset-0 h-[600px] md:h-[720px] pointer-events-none">
+          <Suspense fallback={null}>
+            <div className="w-full h-full pointer-events-auto"><HeroScene3D /></div>
+          </Suspense>
+        </div>
+        <div className="absolute inset-x-0 top-0 h-[720px] bg-gradient-to-b from-background/40 via-background/10 to-background pointer-events-none" />
+        <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center relative z-10 pointer-events-none">
+          <div className="[&_a]:pointer-events-auto [&_button]:pointer-events-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-mono mb-6 tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AI-POWERED • OFFLINE-FIRST • ENTERPRISE READY
           </div>
