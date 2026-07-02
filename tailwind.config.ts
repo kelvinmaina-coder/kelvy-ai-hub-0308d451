@@ -73,18 +73,26 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+        marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },
+        "gradient-x": { "0%,100%": { backgroundPosition: "0% 50%" }, "50%": { backgroundPosition: "100% 50%" } },
+        shimmer: { "100%": { transform: "translateX(100%)" } },
+        "text-glitch": {
+          "0%,100%": { transform: "translate(0)", textShadow: "0 0 0 transparent" },
+          "20%": { transform: "translate(-2px,1px)", textShadow: "2px 0 #00ffff, -2px 0 #ff00ff" },
+          "40%": { transform: "translate(2px,-1px)", textShadow: "-2px 0 #00ffff, 2px 0 #ff00ff" },
+          "60%": { transform: "translate(-1px,-1px)", textShadow: "1px 0 #00ffff, -1px 0 #ff00ff" },
+          "80%": { transform: "translate(1px,1px)", textShadow: "0 0 0 transparent" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        marquee: "marquee 30s linear infinite",
+        "gradient-x": "gradient-x 6s ease infinite",
+        shimmer: "shimmer 2.5s infinite",
+        "text-glitch": "text-glitch 3.5s infinite",
       },
     },
   },

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Shield, Bot, Terminal, BarChart3, Users, Zap, Globe, Code, Network, Lock, Server, Cpu } from "lucide-react";
 import kelvyLogo from "@/assets/kelvy-logo.png";
-import { lazy, Suspense } from "react";
-const HeroScene3D = lazy(() => import("@/components/three/HeroScene3D"));
+import RotatingWords from "@/components/RotatingWords";
+import Marquee from "@/components/Marquee";
 
 const features = [
   { icon: Shield, title: "Security Operations", desc: "70+ Linux security tools with AI-powered analysis. Nmap, SQLMap, Metasploit, and more.", color: "text-red-400" },
@@ -50,43 +50,48 @@ export default function LandingPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 cyber-grid opacity-30" />
-        <div className="absolute inset-0 h-[600px] md:h-[720px] pointer-events-none">
-          <Suspense fallback={null}>
-            <div className="w-full h-full pointer-events-auto"><HeroScene3D /></div>
-          </Suspense>
-        </div>
-        <div className="absolute inset-x-0 top-0 h-[720px] bg-gradient-to-b from-background/40 via-background/10 to-background pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center relative z-10 pointer-events-none">
-          <div className="[&_a]:pointer-events-auto [&_button]:pointer-events-auto">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.15),transparent_60%)]" />
+        <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-mono mb-6 tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AI-POWERED • OFFLINE-FIRST • ENTERPRISE READY
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 text-glow-green">
+          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 text-glow-green animate-text-glitch">
             <span className="text-primary">KELVY</span> CYBERTECH HUB
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 font-body">
+
+          <div className="font-display text-2xl md:text-4xl font-bold mb-6 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
+            <span className="text-muted-foreground">One platform for</span>
+            <RotatingWords
+              words={["Cybersecurity", "AI Assistance", "Business Ops", "Cloud IDE", "Network Control", "Client Portals", "Automation"]}
+              className="bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x"
+            />
+          </div>
+
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 font-body">
             The unified AI-powered command center for cybersecurity, business operations, and enterprise computing.
             All fields of computing — one platform.
           </p>
           <div className="flex items-center justify-center gap-4 mb-12">
-            <Link to="/auth" className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-mono text-sm font-bold hover:opacity-90 transition glow-border">
-              🚀 Launch Dashboard
+            <Link to="/auth" className="relative overflow-hidden px-6 py-3 rounded-lg bg-primary text-primary-foreground font-mono text-sm font-bold hover:opacity-90 transition glow-border group">
+              <span className="relative z-10">🚀 Launch Dashboard</span>
+              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
             </Link>
-            <a href="#features" className="px-6 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:text-foreground transition">
+            <a href="#features" className="px-6 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:text-foreground hover:border-primary/50 transition">
               Explore Features
             </a>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
             {stats.map(s => (
-              <div key={s.label} className="glass rounded-xl p-4 text-center">
+              <div key={s.label} className="glass rounded-xl p-4 text-center hover:border-primary/40 transition">
                 <p className="text-2xl font-display font-bold text-primary text-glow-green">{s.value}</p>
                 <p className="text-[10px] text-muted-foreground font-mono tracking-wider">{s.label}</p>
               </div>
             ))}
           </div>
-          </div>
+
+          <Marquee items={["SECURE BY DESIGN", "REAL-TIME MONITORING", "ROLE-BASED ACCESS", "AUDIT-READY", "M-PESA READY", "OLLAMA AI", "70+ LINUX TOOLS", "OFFLINE-FIRST"]} />
         </div>
       </section>
 
