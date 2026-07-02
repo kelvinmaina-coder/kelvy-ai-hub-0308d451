@@ -37,7 +37,7 @@ export default function NetworkHub() {
   const [devices, setDevices] = useState<Device[]>(defaultDevices);
   const [scanning, setScanning] = useState(false);
   const [backendOnline, setBackendOnline] = useState<boolean | null>(null);
-  const [view, setView] = useState<"3d" | "table">("3d");
+  
 
   useEffect(() => {
     fetch(`${BACKEND_URL}/health`).then(() => setBackendOnline(true)).catch(() => setBackendOnline(false));
@@ -136,21 +136,8 @@ export default function NetworkHub() {
       </div>
 
       <div className="rounded-lg border border-border bg-card p-4">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="font-display text-sm text-secondary text-glow-cyan">NETWORK DEVICES</h3>
-          <div className="flex gap-1 rounded-md border border-border overflow-hidden text-[10px] font-mono">
-            <button onClick={() => setView("3d")} className={`px-2 py-1 flex items-center gap-1 transition ${view === "3d" ? "bg-primary/20 text-primary" : "text-muted-foreground hover:text-foreground"}`}><Boxes className="w-3 h-3" />3D</button>
-            <button onClick={() => setView("table")} className={`px-2 py-1 flex items-center gap-1 transition ${view === "table" ? "bg-primary/20 text-primary" : "text-muted-foreground hover:text-foreground"}`}><TableIcon className="w-3 h-3" />Table</button>
-          </div>
-        </div>
-        {view === "3d" && (
-          <div className="h-[420px] rounded-md border border-border/50 bg-background/40 overflow-hidden mb-3">
-            <Suspense fallback={<div className="flex items-center justify-center h-full text-xs font-mono text-muted-foreground"><Loader2 className="w-4 h-4 animate-spin mr-2" />Loading 3D topology…</div>}>
-              <NetworkTopology3D devices={devices} />
-            </Suspense>
-          </div>
-        )}
-        {view === "table" && (
+        <h3 className="font-display text-sm text-secondary mb-3 text-glow-cyan">NETWORK DEVICES</h3>
+        {true && (
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
