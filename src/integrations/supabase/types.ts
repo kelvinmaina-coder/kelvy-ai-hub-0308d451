@@ -910,6 +910,44 @@ export type Database = {
         }
         Relationships: []
       }
+      service_request_updates: {
+        Row: {
+          actor_id: string
+          created_at: string
+          id: string
+          note: string | null
+          request_id: string
+          status_from: string | null
+          status_to: string | null
+        }
+        Insert: {
+          actor_id: string
+          created_at?: string
+          id?: string
+          note?: string | null
+          request_id: string
+          status_from?: string | null
+          status_to?: string | null
+        }
+        Update: {
+          actor_id?: string
+          created_at?: string
+          id?: string
+          note?: string | null
+          request_id?: string
+          status_from?: string | null
+          status_to?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_request_updates_request_id_fkey"
+            columns: ["request_id"]
+            isOneToOne: false
+            referencedRelation: "service_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       service_requests: {
         Row: {
           admin_notes: string | null
@@ -1022,6 +1060,54 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      technician_profiles: {
+        Row: {
+          activated_at: string | null
+          active: boolean
+          availability: string
+          bio: string | null
+          created_at: string
+          id: string
+          invited_at: string
+          invited_by: string | null
+          jobs_completed: number
+          rating: number
+          specialty: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          activated_at?: string | null
+          active?: boolean
+          availability?: string
+          bio?: string | null
+          created_at?: string
+          id?: string
+          invited_at?: string
+          invited_by?: string | null
+          jobs_completed?: number
+          rating?: number
+          specialty?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          activated_at?: string | null
+          active?: boolean
+          availability?: string
+          bio?: string | null
+          created_at?: string
+          id?: string
+          invited_at?: string
+          invited_by?: string | null
+          jobs_completed?: number
+          rating?: number
+          specialty?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       tickets: {
         Row: {

@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Shield, Bot, Users, Briefcase, Ticket,
   BarChart3, Network, Code, Settings, Terminal, ChevronLeft,
   ChevronRight, Zap, Globe, Menu, LogOut, MessageSquare, Bell,
-  Phone, Calendar, ScrollText
+  Phone, Calendar, ScrollText, Wrench
 } from "lucide-react";
 import { useAuth, AppRole } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
@@ -36,6 +36,7 @@ const navItems: NavItem[] = [
   { icon: Globe, label: "Client Portal", path: "/portal", roles: ["super_admin", "manager", "client"] },
   { icon: Phone, label: "Calls", path: "/calls", roles: ["super_admin", "manager", "security_analyst", "technician", "client"] },
   { icon: Calendar, label: "Meetings", path: "/meetings", roles: ["super_admin", "manager", "security_analyst", "technician", "client"] },
+  { icon: Wrench, label: "Technicians", path: "/admin/technicians", roles: ["super_admin", "manager"] },
   { icon: ScrollText, label: "Audit Log", path: "/audit", roles: ["super_admin", "manager"] },
   { icon: Settings, label: "Settings", path: "/settings", roles: ["super_admin", "manager", "security_analyst", "technician", "client"] },
 ];

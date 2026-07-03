@@ -51,6 +51,11 @@ export default function LandingPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 cyber-grid opacity-30" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.15),transparent_60%)]" />
+        {/* Aurora blobs */}
+        <div aria-hidden className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full bg-primary/20 blur-3xl animate-pulse" />
+        <div aria-hidden className="absolute top-40 -right-32 w-[380px] h-[380px] rounded-full bg-secondary/20 blur-3xl animate-pulse [animation-delay:1.5s]" />
+        <div aria-hidden className="absolute bottom-0 left-1/3 w-[320px] h-[320px] rounded-full bg-purple-500/10 blur-3xl animate-pulse [animation-delay:3s]" />
+
         <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-mono mb-6 tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AI-POWERED • OFFLINE-FIRST • ENTERPRISE READY
@@ -68,16 +73,18 @@ export default function LandingPage() {
           </div>
 
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 font-body">
-            The unified AI-powered command center for cybersecurity, business operations, and enterprise computing.
-            All fields of computing — one platform.
+            Request a service, get it done. Clients post jobs, technicians pick them up, admins keep it running — all in one AI-powered command center.
           </p>
-          <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
             <Link to="/auth" className="relative overflow-hidden px-6 py-3 rounded-lg bg-primary text-primary-foreground font-mono text-sm font-bold hover:opacity-90 transition glow-border group">
-              <span className="relative z-10">🚀 Launch Dashboard</span>
+              <span className="relative z-10">🚀 Sign Up as Client</span>
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
             </Link>
-            <a href="#features" className="px-6 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:text-foreground hover:border-primary/50 transition">
-              Explore Features
+            <Link to="/auth" className="px-6 py-3 rounded-lg border border-primary/50 text-sm font-mono text-primary hover:bg-primary/10 transition">
+              Sign In
+            </Link>
+            <a href="#how" className="px-6 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:text-foreground hover:border-primary/50 transition">
+              How it Works
             </a>
           </div>
 
@@ -94,6 +101,31 @@ export default function LandingPage() {
           <Marquee items={["SECURE BY DESIGN", "REAL-TIME MONITORING", "ROLE-BASED ACCESS", "AUDIT-READY", "M-PESA READY", "OLLAMA AI", "70+ LINUX TOOLS", "OFFLINE-FIRST"]} />
         </div>
       </section>
+
+      {/* How it works */}
+      <section id="how" className="border-t border-border/50">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <div className="text-center mb-10">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">How it Works</h2>
+            <p className="text-sm text-muted-foreground font-mono">Three roles. One seamless flow.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { n: "01", t: "Client Requests", d: "Sign up in seconds and post a service request — describe the issue, set priority and budget." , c: "text-primary" },
+              { n: "02", t: "Technician Claims", d: "Available jobs stream to on-duty technicians. One tap to claim, then update progress in real time.", c: "text-secondary" },
+              { n: "03", t: "Admin Oversees", d: "Admins invite technicians, reassign work, monitor SLAs and see every action on the audit timeline.", c: "text-purple-400" },
+            ].map(s => (
+              <div key={s.n} className="glass rounded-xl p-6 relative overflow-hidden group">
+                <span className={`font-display text-5xl font-bold opacity-20 ${s.c}`}>{s.n}</span>
+                <h3 className="font-display text-lg font-bold mt-2 mb-1">{s.t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+                <div className={`absolute -bottom-8 -right-8 w-24 h-24 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition`} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Features */}
       <section id="features" className="max-w-6xl mx-auto px-4 py-16">
