@@ -49,19 +49,20 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 cyber-grid opacity-30" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.15),transparent_60%)]" />
-        {/* Aurora blobs */}
-        <div aria-hidden className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full bg-primary/20 blur-3xl animate-pulse" />
-        <div aria-hidden className="absolute top-40 -right-32 w-[380px] h-[380px] rounded-full bg-secondary/20 blur-3xl animate-pulse [animation-delay:1.5s]" />
-        <div aria-hidden className="absolute bottom-0 left-1/3 w-[320px] h-[320px] rounded-full bg-purple-500/10 blur-3xl animate-pulse [animation-delay:3s]" />
+        <div className="absolute inset-0 cyber-grid opacity-20" />
+        {/* Soft ambient aurora — no harsh flash */}
+        <div aria-hidden className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.07),transparent_70%)]" />
+        <div aria-hidden className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full bg-primary/10 blur-[120px] animate-float" />
+        <div aria-hidden className="absolute top-60 -right-40 w-[460px] h-[460px] rounded-full bg-secondary/10 blur-[120px] animate-float [animation-delay:2s]" />
+        <div aria-hidden className="absolute bottom-0 left-10 w-[360px] h-[360px] rounded-full bg-accent/10 blur-[120px] animate-float [animation-delay:4s]" />
 
         <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-mono mb-6 tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AI-POWERED • OFFLINE-FIRST • ENTERPRISE READY
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 text-glow-green animate-text-glitch">
-            <span className="text-primary">KELVY</span> CYBERTECH HUB
+          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x">KELVY</span>
+            <span className="text-foreground/90"> CYBERTECH HUB</span>
           </h1>
 
           <div className="font-display text-2xl md:text-4xl font-bold mb-6 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
