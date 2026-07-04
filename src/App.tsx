@@ -30,6 +30,7 @@ import Meetings from "@/pages/Meetings";
 import MeetingRoom from "@/pages/MeetingRoom";
 import AuditLog from "@/pages/AuditLog";
 import AdminTechnicians from "@/pages/AdminTechnicians";
+import AdminClients from "@/pages/AdminClients";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
