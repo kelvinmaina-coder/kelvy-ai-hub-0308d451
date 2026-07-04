@@ -30,6 +30,7 @@ import Meetings from "@/pages/Meetings";
 import MeetingRoom from "@/pages/MeetingRoom";
 import AuditLog from "@/pages/AuditLog";
 import AdminTechnicians from "@/pages/AdminTechnicians";
+import AdminClients from "@/pages/AdminClients";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -143,6 +144,11 @@ const App = () => (
                       <Route path="/admin/technicians" element={
                         <ProtectedRoute allowedRoles={["super_admin", "manager"]}>
                           <AdminTechnicians />
+                        </ProtectedRoute>
+                      } />
+                      <Route path="/admin/clients" element={
+                        <ProtectedRoute allowedRoles={["super_admin", "manager"]}>
+                          <AdminClients />
                         </ProtectedRoute>
                       } />
                       <Route path="/settings" element={
