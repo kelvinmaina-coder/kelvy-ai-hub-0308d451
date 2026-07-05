@@ -41,14 +41,25 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src={kelvyLogo} alt="Kelvy CyberTech" className="w-8 h-8 rounded-lg" />
-            <span className="font-display text-sm font-bold text-primary">KELVY CYBERTECH HUB</span>
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <img src={kelvyLogo} alt="Kelvy CyberTech" className="w-9 h-9 rounded-lg relative z-10" />
+              <div className="absolute inset-0 bg-primary/40 blur-xl rounded-full" />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="font-display text-sm font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">KELVY CYBERTECH</span>
+              <span className="text-[9px] font-mono text-muted-foreground tracking-[0.2em]">COMMAND CENTER</span>
+            </div>
           </div>
           <div className="flex items-center gap-3">
+            <a href="#features" className="hidden md:inline text-xs font-mono text-muted-foreground hover:text-primary transition">Features</a>
+            <a href="#how" className="hidden md:inline text-xs font-mono text-muted-foreground hover:text-primary transition">How</a>
+            <a href="#love" className="hidden md:inline text-xs font-mono text-muted-foreground hover:text-primary transition">Loved</a>
             <Link to="/auth" className="px-4 py-1.5 rounded-lg border border-border text-xs font-mono text-muted-foreground hover:text-foreground transition">
               Sign In
             </Link>
-            <Link to="/auth" className="px-4 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-mono font-bold hover:opacity-90 transition">
-              Get Started
+            <Link to="/auth" className="group relative px-4 py-1.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground text-xs font-mono font-bold overflow-hidden">
+              <span className="relative z-10 flex items-center gap-1">Get Started <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition" /></span>
             </Link>
           </div>
         </div>
@@ -59,6 +70,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 cyber-grid opacity-20" />
         {/* Soft ambient aurora — no harsh flash */}
         <div aria-hidden className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.07),transparent_70%)]" />
+
         <div aria-hidden className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full bg-primary/10 blur-[120px] animate-float" />
         <div aria-hidden className="absolute top-60 -right-40 w-[460px] h-[460px] rounded-full bg-secondary/10 blur-[120px] animate-float [animation-delay:2s]" />
         <div aria-hidden className="absolute bottom-0 left-10 w-[360px] h-[360px] rounded-full bg-accent/10 blur-[120px] animate-float [animation-delay:4s]" />
