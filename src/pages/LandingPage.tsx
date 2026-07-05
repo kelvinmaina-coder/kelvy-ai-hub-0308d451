@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
-import { Shield, Bot, Terminal, BarChart3, Users, Zap, Globe, Code, Network, Lock, Server, Cpu } from "lucide-react";
+import { Shield, Bot, Terminal, BarChart3, Users, Zap, Globe, Code, Network, Lock, Server, Cpu, Sparkles, ArrowRight, Star, CheckCircle2, MessageSquare } from "lucide-react";
 import kelvyLogo from "@/assets/kelvy-logo.png";
 import RotatingWords from "@/components/RotatingWords";
 import Marquee from "@/components/Marquee";
+
+const testimonials = [
+  { name: "Amina W.", role: "IT Manager, Nairobi", quote: "Kelvy replaced 4 tools. Our SLA dropped from 6h to 40 min.", color: "from-primary/30 to-secondary/30" },
+  { name: "David K.", role: "Senior Technician", quote: "I claim jobs, message clients and file reports without leaving the tab.", color: "from-accent/30 to-primary/30" },
+  { name: "Grace M.", role: "Small Biz Owner", quote: "Posted a request at 9pm — technician was chatting with me by 9:07.", color: "from-secondary/30 to-accent/30" },
+];
+
 
 const features = [
   { icon: Shield, title: "Security Operations", desc: "70+ Linux security tools with AI-powered analysis. Nmap, SQLMap, Metasploit, and more.", color: "text-red-400" },
