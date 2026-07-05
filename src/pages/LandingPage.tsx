@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
-import { Shield, Bot, Terminal, BarChart3, Users, Zap, Globe, Code, Network, Lock, Server, Cpu } from "lucide-react";
+import { Shield, Bot, Terminal, BarChart3, Users, Zap, Globe, Code, Network, Lock, Server, Cpu, Sparkles, ArrowRight, Star, CheckCircle2, MessageSquare } from "lucide-react";
 import kelvyLogo from "@/assets/kelvy-logo.png";
 import RotatingWords from "@/components/RotatingWords";
 import Marquee from "@/components/Marquee";
+
+const testimonials = [
+  { name: "Amina W.", role: "IT Manager, Nairobi", quote: "Kelvy replaced 4 tools. Our SLA dropped from 6h to 40 min.", color: "from-primary/30 to-secondary/30" },
+  { name: "David K.", role: "Senior Technician", quote: "I claim jobs, message clients and file reports without leaving the tab.", color: "from-accent/30 to-primary/30" },
+  { name: "Grace M.", role: "Small Biz Owner", quote: "Posted a request at 9pm — technician was chatting with me by 9:07.", color: "from-secondary/30 to-accent/30" },
+];
+
 
 const features = [
   { icon: Shield, title: "Security Operations", desc: "70+ Linux security tools with AI-powered analysis. Nmap, SQLMap, Metasploit, and more.", color: "text-red-400" },
@@ -33,15 +40,25 @@ export default function LandingPage() {
       <nav className="border-b border-border/50 backdrop-blur-lg bg-background/80 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={kelvyLogo} alt="Kelvy CyberTech" className="w-8 h-8 rounded-lg" />
-            <span className="font-display text-sm font-bold text-primary">KELVY CYBERTECH HUB</span>
+
+            <div className="relative">
+              <img src={kelvyLogo} alt="Kelvy CyberTech" className="w-9 h-9 rounded-lg relative z-10" />
+              <div className="absolute inset-0 bg-primary/40 blur-xl rounded-full" />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="font-display text-sm font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">KELVY CYBERTECH</span>
+              <span className="text-[9px] font-mono text-muted-foreground tracking-[0.2em]">COMMAND CENTER</span>
+            </div>
           </div>
           <div className="flex items-center gap-3">
+            <a href="#features" className="hidden md:inline text-xs font-mono text-muted-foreground hover:text-primary transition">Features</a>
+            <a href="#how" className="hidden md:inline text-xs font-mono text-muted-foreground hover:text-primary transition">How</a>
+            <a href="#love" className="hidden md:inline text-xs font-mono text-muted-foreground hover:text-primary transition">Loved</a>
             <Link to="/auth" className="px-4 py-1.5 rounded-lg border border-border text-xs font-mono text-muted-foreground hover:text-foreground transition">
               Sign In
             </Link>
-            <Link to="/auth" className="px-4 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-mono font-bold hover:opacity-90 transition">
-              Get Started
+            <Link to="/auth" className="group relative px-4 py-1.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground text-xs font-mono font-bold overflow-hidden">
+              <span className="relative z-10 flex items-center gap-1">Get Started <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition" /></span>
             </Link>
           </div>
         </div>
@@ -52,6 +69,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 cyber-grid opacity-20" />
         {/* Soft ambient aurora — no harsh flash */}
         <div aria-hidden className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.07),transparent_70%)]" />
+
         <div aria-hidden className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full bg-primary/10 blur-[120px] animate-float" />
         <div aria-hidden className="absolute top-60 -right-40 w-[460px] h-[460px] rounded-full bg-secondary/10 blur-[120px] animate-float [animation-delay:2s]" />
         <div aria-hidden className="absolute bottom-0 left-10 w-[360px] h-[360px] rounded-full bg-accent/10 blur-[120px] animate-float [animation-delay:4s]" />
@@ -158,18 +176,105 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <div className="glass rounded-2xl p-8 md:p-12 border border-primary/20">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">Ready to Take Control?</h2>
-          <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-6">
-            Join Kelvy CyberTech Hub and access the most comprehensive AI-powered enterprise platform. Built in Kenya, for the world.
-          </p>
-          <Link to="/auth" className="inline-flex px-8 py-3 rounded-lg bg-primary text-primary-foreground font-mono text-sm font-bold hover:opacity-90 transition">
-            Create Free Account
-          </Link>
+      {/* Testimonials */}
+      <section id="love" className="border-t border-border/50 relative overflow-hidden">
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.06),transparent_70%)]" />
+        <div className="max-w-6xl mx-auto px-4 py-16 relative">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 mb-3">
+              <Sparkles className="w-3 h-3 text-primary" />
+              <span className="text-[10px] font-mono text-primary tracking-wider">LOVED BY TEAMS</span>
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">People are shipping faster</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {testimonials.map(t => (
+              <div key={t.name} className="glass rounded-2xl p-5 relative overflow-hidden group hover:border-primary/40 transition">
+                <div className={`absolute -top-16 -right-16 w-40 h-40 rounded-full bg-gradient-to-br ${t.color} blur-2xl opacity-40 group-hover:opacity-70 transition`} />
+                <div className="flex gap-0.5 mb-3 relative">
+                  {[0,1,2,3,4].map(i => <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />)}
+                </div>
+                <p className="text-sm text-foreground leading-relaxed mb-4 relative">"{t.quote}"</p>
+                <div className="flex items-center gap-2 relative">
+                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-xs font-bold text-foreground`}>
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-foreground">{t.name}</p>
+                    <p className="text-[10px] font-mono text-muted-foreground">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Live Workflow Bento */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="text-center mb-10">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">Everything talks to everything</h2>
+          <p className="text-sm text-muted-foreground font-mono">Real-time chat · file sharing · edits · unsend — built in.</p>
+        </div>
+        <div className="grid md:grid-cols-6 gap-4">
+          <div className="md:col-span-4 glass rounded-2xl p-6 relative overflow-hidden group">
+            <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-primary/15 blur-3xl group-hover:bg-primary/25 transition" />
+            <MessageSquare className="w-8 h-8 text-primary mb-3" />
+            <h3 className="font-display text-lg font-bold text-foreground mb-2">Unified Messaging</h3>
+            <p className="text-sm text-muted-foreground mb-4">Chat with any admin, technician or client. Send images, videos, documents. Edit and unsend just like the apps you already use.</p>
+            <div className="flex gap-2 flex-wrap">
+              {["Real-time", "Attachments", "Edit", "Unsend", "Role-grouped"].map(x => (
+                <span key={x} className="px-2 py-1 rounded bg-primary/10 border border-primary/20 text-[10px] font-mono text-primary flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" /> {x}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="md:col-span-2 glass rounded-2xl p-6 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent" />
+            <Bot className="w-8 h-8 text-secondary mb-3 relative" />
+            <h3 className="font-display text-lg font-bold text-foreground mb-2 relative">AI Copilot</h3>
+            <p className="text-xs text-muted-foreground relative">Local Ollama models draft replies, summarize tickets and analyze scans — offline.</p>
+          </div>
+          <div className="md:col-span-2 glass rounded-2xl p-6 relative overflow-hidden">
+            <Shield className="w-8 h-8 text-red-400 mb-3" />
+            <h3 className="font-display text-lg font-bold text-foreground mb-2">70+ Tools</h3>
+            <p className="text-xs text-muted-foreground">Nmap, SQLMap, Metasploit and more, one click away.</p>
+          </div>
+          <div className="md:col-span-4 glass rounded-2xl p-6 relative overflow-hidden group">
+            <div className="absolute -bottom-20 -left-20 w-56 h-56 rounded-full bg-accent/15 blur-3xl" />
+            <Zap className="w-8 h-8 text-accent mb-3 relative" />
+            <h3 className="font-display text-lg font-bold text-foreground mb-2 relative">Automation everywhere</h3>
+            <p className="text-sm text-muted-foreground relative">Triggers, schedules and rule-based workflows react the moment something happens.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-6xl mx-auto px-4 py-16 text-center">
+        <div className="relative glass rounded-3xl p-8 md:p-14 border border-primary/20 overflow-hidden">
+          <div aria-hidden className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,hsl(var(--primary)/0.1),transparent,hsl(var(--secondary)/0.1),transparent,hsl(var(--accent)/0.1),transparent)] animate-[spin_20s_linear_infinite]" />
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/40 bg-primary/10 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-[10px] font-mono text-primary tracking-wider">FREE FOREVER · NO CREDIT CARD</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">Ready to Take Control?</h2>
+            <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-6">
+              Join Kelvy CyberTech Hub and access the most comprehensive AI-powered enterprise platform. Built in Kenya, for the world.
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link to="/auth" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] hover:bg-right text-primary-foreground font-mono text-sm font-bold transition-all duration-500">
+                Create Free Account <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a href="#features" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:border-primary/50 hover:text-primary transition">
+                Explore Modules
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Footer */}
       <footer className="border-t border-border/50 py-6">
