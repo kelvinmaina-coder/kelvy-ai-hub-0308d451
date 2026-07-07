@@ -303,30 +303,71 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <div className="relative glass rounded-3xl p-8 md:p-14 border border-primary/20 overflow-hidden">
-          <div aria-hidden className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,hsl(var(--primary)/0.1),transparent,hsl(var(--secondary)/0.1),transparent,hsl(var(--accent)/0.1),transparent)] animate-[spin_20s_linear_infinite]" />
-          <div className="relative">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/40 bg-primary/10 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-[10px] font-mono text-primary tracking-wider">FREE FOREVER · NO CREDIT CARD</span>
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">Ready to Take Control?</h2>
-            <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-6">
-              Join Kelvy CyberTech Hub and access the most comprehensive AI-powered enterprise platform. Built in Kenya, for the world.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center">
-              <Link to="/auth" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] hover:bg-right text-primary-foreground font-mono text-sm font-bold transition-all duration-500">
-                Create Free Account <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a href="#features" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:border-primary/50 hover:text-primary transition">
-                Explore Modules
-              </a>
+      {/* CTA — flanked by faux code panels */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-12 gap-4 items-stretch">
+          {/* Left code panel */}
+          <pre className="hidden md:block md:col-span-3 glass rounded-2xl p-4 border border-primary/20 text-[9px] leading-relaxed font-mono text-primary/70 overflow-hidden">
+{`> kelvy init --mode=hub
+✓ auth.session       ok
+✓ realtime.channel   ok
+✓ ollama.qwen2.5     ok
+✓ mpesa.daraja       ok
+✓ tools.linux[70]    ok
+
+$ status
+[core]  UP   99.92%
+[chat]  UP   realtime
+[ai  ]  UP   local
+[jobs]  QUEUED 4
+[sla ]  MET  100%
+
+$ awaiting_operator...`}
+          </pre>
+
+          {/* CTA center */}
+          <div className="md:col-span-6 relative glass rounded-3xl p-8 md:p-12 border border-primary/30 overflow-hidden text-center">
+            <div aria-hidden className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,hsl(var(--primary)/0.12),transparent,hsl(var(--secondary)/0.12),transparent,hsl(var(--accent)/0.12),transparent)] animate-[spin_20s_linear_infinite]" />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/40 bg-primary/10 mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-[10px] font-mono text-primary tracking-wider">FREE FOREVER · NO CREDIT CARD</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">Ready to Take Control?</h2>
+              <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-6">
+                Join Kelvy CyberTech Hub and access the most comprehensive AI-powered enterprise platform. Built in Kenya, for the world.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <Link to="/auth" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] hover:bg-right text-primary-foreground font-mono text-sm font-bold transition-all duration-500">
+                  Create Free Account <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a href="#features" className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:border-primary/50 hover:text-primary transition">
+                  Explore Modules
+                </a>
+              </div>
             </div>
           </div>
+
+          {/* Right code panel */}
+          <pre className="hidden md:block md:col-span-3 glass rounded-2xl p-4 border border-secondary/20 text-[9px] leading-relaxed font-mono text-secondary/70 overflow-hidden">
+{`// live.telemetry.ts
+subscribe("tickets", (evt) => {
+  if (evt.priority === "P1") {
+    ai.route(evt).then(notify);
+  }
+});
+
+// automation.rules
+on("scan.complete", async (r) => {
+  const s = await ollama.summarize(r);
+  await chat.post("#ops", s);
+});
+
+export default hub;`}
+          </pre>
         </div>
       </section>
+
 
 
       {/* Footer */}
