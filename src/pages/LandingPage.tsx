@@ -152,6 +152,9 @@ export default function LandingPage() {
       </section>
 
 
+      {/* Live Command Center — theme-aware holographic dashboard */}
+      <LiveCommandCenter />
+
       {/* Features */}
       <section id="features" className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
