@@ -13,19 +13,24 @@ const testimonials = [
 
 
 const features = [
-  { icon: Shield, title: "Security Operations", desc: "70+ Linux security tools with AI-powered analysis. Nmap, SQLMap, Metasploit, and more.", color: "text-red-400" },
-  { icon: Bot, title: "AI Assistant", desc: "Private, local AI powered by Ollama. Code review, threat analysis, document summarization.", color: "text-purple-400" },
-  { icon: Terminal, title: "Linux Tools Hub", desc: "Execute security tools directly from the dashboard. Cross-platform with Docker fallback.", color: "text-green-400" },
-  { icon: Users, title: "CRM System", desc: "Full customer management with pipeline tracking, M-Pesa integration, and client portal.", color: "text-blue-400" },
-  { icon: BarChart3, title: "Business Analytics", desc: "Real-time dashboards with AI-narrated insights. Revenue, security, and operations metrics.", color: "text-yellow-400" },
-  { icon: Code, title: "Cloud IDE", desc: "Browser-based development environment with AI code assistant and Git integration.", color: "text-cyan-400" },
-  { icon: Network, title: "Network Hub", desc: "Real-time network topology, device discovery, bandwidth monitoring, and VPN management.", color: "text-orange-400" },
-  { icon: Zap, title: "Automation Engine", desc: "Scheduled tasks, workflow automation, and event-driven triggers that run your system.", color: "text-pink-400" },
-  { icon: Lock, title: "RBAC Security", desc: "Role-based access control with 6 roles, audit logging, and zero-trust architecture.", color: "text-emerald-400" },
-  { icon: Server, title: "ERP System", desc: "Finance, invoicing, expense tracking, and M-Pesa payment processing for Kenya.", color: "text-amber-400" },
-  { icon: Globe, title: "Client Portal", desc: "Secure portal for clients to track projects, tickets, invoices, and communicate.", color: "text-teal-400" },
-  { icon: Cpu, title: "ITSM Ticketing", desc: "Support ticket system with SLA tracking, AI-suggested resolutions, and knowledge base.", color: "text-indigo-400" },
-];
+  { icon: Shield, title: "Security Operations", desc: "70+ Linux security tools with AI-powered analysis. Nmap, SQLMap, Metasploit, and more.", tone: "primary" },
+  { icon: Bot, title: "AI Assistant", desc: "Private, local AI powered by Ollama. Code review, threat analysis, document summarization.", tone: "secondary" },
+  { icon: Terminal, title: "Linux Tools Hub", desc: "Execute security tools directly from the dashboard. Cross-platform with Docker fallback.", tone: "accent" },
+  { icon: Users, title: "CRM System", desc: "Full customer management with pipeline tracking, M-Pesa integration, and client portal.", tone: "primary" },
+  { icon: BarChart3, title: "Business Analytics", desc: "Real-time dashboards with AI-narrated insights. Revenue, security, and operations metrics.", tone: "secondary" },
+  { icon: Code, title: "Cloud IDE", desc: "Browser-based development environment with AI code assistant and Git integration.", tone: "accent" },
+  { icon: Network, title: "Network Hub", desc: "Real-time network topology, device discovery, bandwidth monitoring, and VPN management.", tone: "primary" },
+  { icon: Zap, title: "Automation Engine", desc: "Scheduled tasks, workflow automation, and event-driven triggers that run your system.", tone: "secondary" },
+  { icon: Lock, title: "RBAC Security", desc: "Role-based access control with 6 roles, audit logging, and zero-trust architecture.", tone: "accent" },
+  { icon: Server, title: "ERP System", desc: "Finance, invoicing, expense tracking, and M-Pesa payment processing for Kenya.", tone: "primary" },
+  { icon: Globe, title: "Client Portal", desc: "Secure portal for clients to track projects, tickets, invoices, and communicate.", tone: "secondary" },
+  { icon: Cpu, title: "ITSM Ticketing", desc: "Support ticket system with SLA tracking, AI-suggested resolutions, and knowledge base.", tone: "accent" },
+] as const;
+
+const toneClass = (t: "primary" | "secondary" | "accent") =>
+  t === "primary" ? "text-primary" : t === "secondary" ? "text-secondary" : "text-accent";
+const toneBg = (t: "primary" | "secondary" | "accent") =>
+  t === "primary" ? "bg-primary/10 border-primary/30" : t === "secondary" ? "bg-secondary/10 border-secondary/30" : "bg-accent/10 border-accent/30";
 
 const stats = [
   { value: "70+", label: "Security Tools" },
