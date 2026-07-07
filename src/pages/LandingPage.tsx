@@ -160,8 +160,10 @@ export default function LandingPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map(f => (
-            <div key={f.title} className="glass rounded-xl p-5 hover:border-primary/30 transition group">
-              <f.icon className={`w-8 h-8 ${f.color} mb-3 group-hover:scale-110 transition`} />
+            <div key={f.title} className={`glass rounded-xl p-5 hover:border-primary/40 transition group relative overflow-hidden`}>
+              <div className={`inline-flex w-11 h-11 rounded-lg items-center justify-center border ${toneBg(f.tone)} mb-3 group-hover:scale-110 transition`}>
+                <f.icon className={`w-5 h-5 ${toneClass(f.tone)}`} />
+              </div>
               <h3 className="font-display text-sm font-bold text-foreground mb-1">{f.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">{f.desc}</p>
             </div>
