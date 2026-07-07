@@ -245,7 +245,7 @@ export default function LandingPage() {
             <p className="text-xs text-muted-foreground relative">Local Ollama models draft replies, summarize tickets and analyze scans — offline.</p>
           </div>
           <div className="md:col-span-2 glass rounded-2xl p-6 relative overflow-hidden">
-            <Shield className="w-8 h-8 text-red-400 mb-3" />
+            <Shield className="w-8 h-8 text-primary mb-3" />
             <h3 className="font-display text-lg font-bold text-foreground mb-2">70+ Tools</h3>
             <p className="text-xs text-muted-foreground">Nmap, SQLMap, Metasploit and more, one click away.</p>
           </div>
