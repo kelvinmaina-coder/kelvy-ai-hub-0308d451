@@ -138,7 +138,7 @@ export default function LandingPage() {
             {[
               { n: "01", t: "Client Requests", d: "Sign up in seconds and post a service request — describe the issue, set priority and budget." , c: "text-primary" },
               { n: "02", t: "Technician Claims", d: "Available jobs stream to on-duty technicians. One tap to claim, then update progress in real time.", c: "text-secondary" },
-              { n: "03", t: "Admin Oversees", d: "Admins invite technicians, reassign work, monitor SLAs and see every action on the audit timeline.", c: "text-purple-400" },
+              { n: "03", t: "Admin Oversees", d: "Admins invite technicians, reassign work, monitor SLAs and see every action on the audit timeline.", c: "text-accent" },
             ].map(s => (
               <div key={s.n} className="glass rounded-xl p-6 relative overflow-hidden group">
                 <span className={`font-display text-5xl font-bold opacity-20 ${s.c}`}>{s.n}</span>
