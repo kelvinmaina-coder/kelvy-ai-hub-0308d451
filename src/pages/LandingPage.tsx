@@ -3,6 +3,7 @@ import { Shield, Bot, Terminal, BarChart3, Users, Zap, Globe, Code, Network, Loc
 import kelvyLogo from "@/assets/kelvy-logo.png";
 import RotatingWords from "@/components/RotatingWords";
 import Marquee from "@/components/Marquee";
+import LiveCommandCenter from "@/components/LiveCommandCenter";
 
 const testimonials = [
   { name: "Amina W.", role: "IT Manager, Nairobi", quote: "Kelvy replaced 4 tools. Our SLA dropped from 6h to 40 min.", color: "from-primary/30 to-secondary/30" },
