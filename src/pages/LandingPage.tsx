@@ -71,62 +71,80 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero */}
+      {/* Hero — terminal window over animated neural network */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 cyber-grid opacity-20" />
-        {/* Soft ambient aurora — no harsh flash */}
-        <div aria-hidden className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.07),transparent_70%)]" />
-
+        <NeuralBackground className="opacity-60" />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.10),transparent_70%)]" />
         <div aria-hidden className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full bg-primary/10 blur-[120px] animate-float" />
         <div aria-hidden className="absolute top-60 -right-40 w-[460px] h-[460px] rounded-full bg-secondary/10 blur-[120px] animate-float [animation-delay:2s]" />
-        <div aria-hidden className="absolute bottom-0 left-10 w-[360px] h-[360px] rounded-full bg-accent/10 blur-[120px] animate-float [animation-delay:4s]" />
 
-        <div className="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-mono mb-6 tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AI-POWERED • OFFLINE-FIRST • ENTERPRISE READY
+        <div className="max-w-5xl mx-auto px-4 py-16 md:py-24 relative z-10">
+          {/* Terminal window frame */}
+          <div className="glass-strong rounded-2xl border border-primary/30 shadow-[0_0_60px_-15px_hsl(var(--primary)/0.5)] overflow-hidden">
+            {/* Title bar */}
+            <div className="flex items-center justify-between px-4 h-9 bg-card/80 border-b border-border/60">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-destructive" />
+                <span className="w-2.5 h-2.5 rounded-full bg-warning" />
+                <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                <span className="ml-3 font-mono text-[10px] tracking-[0.3em] text-muted-foreground">TERMINAL</span>
+              </div>
+              <span className="font-mono text-[10px] text-muted-foreground">kelvy@hub — /command-center</span>
+            </div>
+
+            <div className="p-8 md:p-12 text-center relative">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-mono mb-6 tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> AI-POWERED • OFFLINE-FIRST • ENTERPRISE READY
+              </div>
+              <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+                <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x">KELVY</span>
+                <span className="text-foreground/90"> CYBERTECH HUB</span>
+              </h1>
+
+              <div className="font-display text-2xl md:text-4xl font-bold mb-6 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
+                <span className="text-muted-foreground">One platform for</span>
+                <RotatingWords
+                  words={["Cybersecurity", "AI Assistance", "Business Ops", "Cloud IDE", "Network Control", "Client Portals", "Automation"]}
+                  className="bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x"
+                />
+              </div>
+
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 font-body">
+                Request a service, get it done. Clients post jobs, technicians pick them up, admins keep it running — all in one AI-powered command center.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <Link to="/auth" className="relative overflow-hidden px-6 py-3 rounded-lg bg-primary text-primary-foreground font-mono text-sm font-bold hover:opacity-90 transition group">
+                  <span className="relative z-10">🚀 Sign Up as Client</span>
+                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                </Link>
+                <Link to="/auth" className="px-6 py-3 rounded-lg border border-primary/50 text-sm font-mono text-primary hover:bg-primary/10 transition">
+                  Sign In
+                </Link>
+                <a href="#how" className="px-6 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:text-foreground hover:border-primary/50 transition">
+                  How it Works
+                </a>
+              </div>
+            </div>
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x">KELVY</span>
-            <span className="text-foreground/90"> CYBERTECH HUB</span>
-          </h1>
 
-          <div className="font-display text-2xl md:text-4xl font-bold mb-6 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
-            <span className="text-muted-foreground">One platform for</span>
-            <RotatingWords
-              words={["Cybersecurity", "AI Assistance", "Business Ops", "Cloud IDE", "Network Control", "Client Portals", "Automation"]}
-              className="bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x"
-            />
-          </div>
-
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 font-body">
-            Request a service, get it done. Clients post jobs, technicians pick them up, admins keep it running — all in one AI-powered command center.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-            <Link to="/auth" className="relative overflow-hidden px-6 py-3 rounded-lg bg-primary text-primary-foreground font-mono text-sm font-bold hover:opacity-90 transition glow-border group">
-              <span className="relative z-10">🚀 Sign Up as Client</span>
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
-            </Link>
-            <Link to="/auth" className="px-6 py-3 rounded-lg border border-primary/50 text-sm font-mono text-primary hover:bg-primary/10 transition">
-              Sign In
-            </Link>
-            <a href="#how" className="px-6 py-3 rounded-lg border border-border text-sm font-mono text-muted-foreground hover:text-foreground hover:border-primary/50 transition">
-              How it Works
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
+          {/* Stats — beveled chips under terminal */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-8">
             {stats.map(s => (
-              <div key={s.label} className="glass rounded-xl p-4 text-center hover:border-primary/40 transition">
-                <p className="text-2xl font-display font-bold text-primary text-glow-green">{s.value}</p>
-                <p className="text-[10px] text-muted-foreground font-mono tracking-wider">{s.label}</p>
+              <div key={s.label} className="glass rounded-xl border border-primary/20 p-4 text-center hover:border-primary/50 transition relative overflow-hidden group">
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition" />
+                <p className="text-2xl font-display font-bold text-primary text-glow-green relative">{s.value}</p>
+                <p className="text-[10px] text-muted-foreground font-mono tracking-wider relative">{s.label}</p>
               </div>
             ))}
           </div>
 
-          <Marquee items={["SECURE BY DESIGN", "REAL-TIME MONITORING", "ROLE-BASED ACCESS", "AUDIT-READY", "M-PESA READY", "OLLAMA AI", "70+ LINUX TOOLS", "OFFLINE-FIRST"]} />
+          <div className="mt-10">
+            <Marquee items={["SECURE BY DESIGN", "REAL-TIME MONITORING", "ROLE-BASED ACCESS", "AUDIT-READY", "M-PESA READY", "OLLAMA AI", "70+ LINUX TOOLS", "OFFLINE-FIRST"]} />
+          </div>
         </div>
       </section>
+
 
       {/* How it works */}
       <section id="how" className="border-t border-border/50">
