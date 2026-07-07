@@ -193,18 +193,41 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Tech Stack */}
+      {/* Tech Stack — framed with circuit-board border */}
       <section className="border-t border-border/50 bg-muted/5">
-        <div className="max-w-6xl mx-auto px-4 py-16 text-center">
-          <h2 className="font-display text-2xl font-bold text-foreground mb-2">100% Free Tech Stack</h2>
-          <p className="text-sm text-muted-foreground font-mono mb-8">Enterprise-grade tools at zero cost</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {["Ollama AI", "Supabase", "React", "Tailwind", "FastAPI", "Docker", "PostgreSQL", "Recharts", "TypeScript", "Vite"].map(t => (
-              <span key={t} className="px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-mono text-muted-foreground">{t}</span>
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <div className="relative rounded-3xl p-8 md:p-12 border-2 border-primary/40 shadow-[inset_0_0_40px_hsl(var(--primary)/0.08),0_0_60px_-30px_hsl(var(--primary)/0.6)]">
+            {/* corner circuit nodes */}
+            {[
+              "top-0 left-0", "top-0 right-0", "bottom-0 left-0", "bottom-0 right-0",
+            ].map(pos => (
+              <span key={pos} className={`absolute ${pos} w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary))] -translate-x-1/2 -translate-y-1/2`} style={{ transform: `translate(${pos.includes("right") ? "50%" : "-50%"}, ${pos.includes("bottom") ? "50%" : "-50%"})` }} />
             ))}
+            {/* side circuit ticks */}
+            <svg aria-hidden className="absolute inset-x-6 top-0 h-2 -translate-y-1/2 w-[calc(100%-3rem)]" viewBox="0 0 100 2" preserveAspectRatio="none">
+              {Array.from({ length: 20 }).map((_, i) => (
+                <line key={i} x1={i * 5 + 2} y1="0" x2={i * 5 + 2} y2="2" stroke="hsl(var(--primary))" strokeWidth="0.3" opacity="0.6" />
+              ))}
+            </svg>
+            <svg aria-hidden className="absolute inset-x-6 bottom-0 h-2 translate-y-1/2 w-[calc(100%-3rem)]" viewBox="0 0 100 2" preserveAspectRatio="none">
+              {Array.from({ length: 20 }).map((_, i) => (
+                <line key={i} x1={i * 5 + 2} y1="0" x2={i * 5 + 2} y2="2" stroke="hsl(var(--primary))" strokeWidth="0.3" opacity="0.6" />
+              ))}
+            </svg>
+
+            <div className="text-center">
+              <h2 className="font-display text-2xl font-bold text-foreground mb-2">100% Free Tech Stack</h2>
+              <p className="text-sm text-muted-foreground font-mono mb-8">Enterprise-grade tools at zero cost</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {["Ollama AI", "Supabase", "React", "Tailwind", "FastAPI", "Docker", "PostgreSQL", "Recharts", "TypeScript", "Vite"].map(t => (
+                  <span key={t} className="px-3 py-1.5 rounded-lg border border-primary/30 bg-card/60 text-xs font-mono text-foreground/80 hover:border-primary/60 hover:text-primary transition">{t}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Testimonials */}
       <section id="love" className="border-t border-border/50 relative overflow-hidden">
