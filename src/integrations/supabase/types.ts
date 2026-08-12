@@ -467,6 +467,56 @@ export type Database = {
           },
         ]
       }
+      kb_articles: {
+        Row: {
+          body: string
+          category: string
+          created_at: string
+          created_by: string | null
+          id: string
+          published: boolean
+          source_request_id: string | null
+          tags: string[]
+          title: string
+          updated_at: string
+          views: number
+        }
+        Insert: {
+          body?: string
+          category?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          published?: boolean
+          source_request_id?: string | null
+          tags?: string[]
+          title: string
+          updated_at?: string
+          views?: number
+        }
+        Update: {
+          body?: string
+          category?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          published?: boolean
+          source_request_id?: string | null
+          tags?: string[]
+          title?: string
+          updated_at?: string
+          views?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "kb_articles_source_request_id_fkey"
+            columns: ["source_request_id"]
+            isOneToOne: false
+            referencedRelation: "service_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       meeting_participants: {
         Row: {
           id: number
@@ -844,6 +894,53 @@ export type Database = {
         }
         Relationships: []
       }
+      quotes: {
+        Row: {
+          amount_kes: number
+          created_at: string
+          created_by: string
+          description: string | null
+          id: string
+          request_id: string
+          responded_at: string | null
+          status: string
+          updated_at: string
+          valid_until: string | null
+        }
+        Insert: {
+          amount_kes?: number
+          created_at?: string
+          created_by: string
+          description?: string | null
+          id?: string
+          request_id: string
+          responded_at?: string | null
+          status?: string
+          updated_at?: string
+          valid_until?: string | null
+        }
+        Update: {
+          amount_kes?: number
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          id?: string
+          request_id?: string
+          responded_at?: string | null
+          status?: string
+          updated_at?: string
+          valid_until?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quotes_request_id_fkey"
+            columns: ["request_id"]
+            isOneToOne: false
+            referencedRelation: "service_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       scans: {
         Row: {
           ai_analysis: string | null
@@ -959,14 +1056,19 @@ export type Database = {
           completed_at: string | null
           created_at: string
           description: string
+          escalated: boolean
           feedback: string | null
+          first_response_at: string | null
           id: string
           location: string | null
           priority: string
           rating: number | null
+          resolve_due_at: string | null
+          response_due_at: string | null
           status: string
           technician_notes: string | null
           title: string
+          track_code: string
           updated_at: string
         }
         Insert: {
@@ -979,14 +1081,19 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           description: string
+          escalated?: boolean
           feedback?: string | null
+          first_response_at?: string | null
           id?: string
           location?: string | null
           priority?: string
           rating?: number | null
+          resolve_due_at?: string | null
+          response_due_at?: string | null
           status?: string
           technician_notes?: string | null
           title: string
+          track_code?: string
           updated_at?: string
         }
         Update: {
@@ -999,14 +1106,19 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           description?: string
+          escalated?: boolean
           feedback?: string | null
+          first_response_at?: string | null
           id?: string
           location?: string | null
           priority?: string
           rating?: number | null
+          resolve_due_at?: string | null
+          response_due_at?: string | null
           status?: string
           technician_notes?: string | null
           title?: string
+          track_code?: string
           updated_at?: string
         }
         Relationships: []
@@ -1182,12 +1294,35 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      auto_assign_request: { Args: { _request_id: string }; Returns: string }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
         Returns: boolean
+      }
+      sla_targets: {
+        Args: { _priority: string }
+        Returns: {
+          resolve_mins: number
+          response_mins: number
+        }[]
+      }
+      track_request: {
+        Args: { _code: string }
+        Returns: {
+          category: string
+          completed_at: string
+          created_at: string
+          escalated: boolean
+          first_response_at: string
+          priority: string
+          resolve_due_at: string
+          status: string
+          technician_first_name: string
+          title: string
+        }[]
       }
       user_conversation_ids: { Args: { _user_id: string }; Returns: number[] }
     }
