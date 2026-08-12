@@ -1179,7 +1179,18 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      technician_directory: {
+        Row: {
+          active: boolean | null
+          availability: string | null
+          full_name: string | null
+          jobs_completed: number | null
+          rating: number | null
+          specialty: string | null
+          user_id: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       has_role: {
